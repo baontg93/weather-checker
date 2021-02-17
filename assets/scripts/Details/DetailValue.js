@@ -4,7 +4,6 @@ cc.Class({
     onLoad() {
         const self = this;
         EventManager.register(self);
-        self.reset();
     },
 
     onEvent(event, data) {
@@ -12,16 +11,18 @@ cc.Class({
 
         switch (event) {
             case "weatherDataCompleted":
+                self.reset();
                 self.setData(data);
                 break;
 
             case "backToList":
+            case "selectCity":
                 self.reset();
                 break;
         }
     },
 
-    setData(weatherData) {},
+    setData(weatherData) { },
 
-    reset() {},
+    reset() { },
 });
